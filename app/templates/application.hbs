@@ -1,5 +1,21 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+Team count
+{{input type='text' value=teamCount}}
+<br />
+Days count
+{{input type='text' value=dayCount}}
+<br />
+<button type='button' onclick={{action 'buildSeries'}}>
+  Build
+</button>
 
-{{outlet}}
+<br />
+<br />
+{{#each teams as |team|}}
+  Team {{team}}&nbsp;
+{{/each}}
+
+<br />
+<br />
+{{#each days as |day|}}
+  Day {{day}}&nbsp;
+{{/each}}
