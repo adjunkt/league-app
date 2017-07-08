@@ -4,9 +4,9 @@ import {
 } from 'ember-cli-mirage'
 
 const {
-  company: { companyName }
+  random: { arrayElement }
 } = faker
 
 export default Factory.extend({
-  name: companyName
+  name: arrayElement(['Indoor Goals', 'Mt. View Ice Arena', 'Valley Ice Arena'])
 })
