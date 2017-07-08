@@ -6,5 +6,5 @@ const {
 } = DS
 
 export default Model.extend({
-  name: attr('')
+  name: attr('string')
 })
