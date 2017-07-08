@@ -1,5 +1,12 @@
 import DS from 'ember-data'
 
-export default DS.Model.extend({
+const {
+  Model,
+  attr
+} = Model
 
+export default Model.extend({
+  email: attr('email'),
+  firstName: attr('string'),
+  lastName: attr('string')
 })
