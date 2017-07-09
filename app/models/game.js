@@ -6,6 +6,6 @@ const {
 } = DS
 
 export default Model.extend({
-  date: attr('date')
+  date: attr('date'),
   deleted: false
 })

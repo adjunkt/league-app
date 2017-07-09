@@ -6,7 +6,7 @@ const {
 } = DS
 
 export default Model.extend({
-  period: attr('number',
+  period: attr('number'),
   time: attr('string'),
   deleted: false
 })

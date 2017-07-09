@@ -8,7 +8,7 @@ const {
 export default Model.extend({
   email: attr('email'),
   firstName: attr('string'),
-  lastName: attr('string')
+  lastName: attr('string'),
   enabled: true,
   deleted: false,
 

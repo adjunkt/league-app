@@ -6,7 +6,7 @@ const {
 } = DS
 
 export default Model.extend({
-  name: attr('string')
+  name: attr('string'),
   enabled: true,
   deleted: false
 })
