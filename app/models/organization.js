@@ -7,4 +7,6 @@ const {
 
 export default Model.extend({
   name: attr('string')
+  enabled: true,
+  deleted: false
 })

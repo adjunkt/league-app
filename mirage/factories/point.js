@@ -16,5 +16,6 @@ const time = length => `${arrayElement(mins(length))}:${arrayElement(secs)}`
 
 export default Factory.extend({
   period: arrayElement([1, 2, 3]),
-  time: () => time(PERIOD_LENGTH)
+  time: () => time(PERIOD_LENGTH),
+  deleted: false
 })

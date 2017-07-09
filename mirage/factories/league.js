@@ -4,9 +4,11 @@ import {
 } from 'ember-cli-mirage'
 
 const {
-  random: { arrayElement }
+  list: { cycle }
 } = faker
 
 export default Factory.extend({
-  name: arrayElement(['Gold', 'Silver', 'Bronze'])
+  name: () => cycle('Gold', 'Silver', 'Bronze'),
+  enabled: true,
+  deleted: false
 })

@@ -11,5 +11,7 @@ const {
 export default Factory.extend({
   email,
   firstName,
-  lastName
+  lastName,
+  enabled: true,
+  deleted: false
 })

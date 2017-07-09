@@ -7,4 +7,5 @@ const {
 
 export default Model.extend({
   date: attr('date')
+  deleted: false
 })

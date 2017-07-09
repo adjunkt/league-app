@@ -7,5 +7,6 @@ const {
 
 export default Model.extend({
   period: attr('number',
-  time: attr('string')
+  time: attr('string'),
+  deleted: false
 })
