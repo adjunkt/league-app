@@ -7,6 +7,7 @@ const {
 
 export default Model.extend({
   name: attr('string'),
+  friendlyUrl: attr('string'),
   enabled: true,
   deleted: false
 })

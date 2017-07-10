@@ -1,26 +1,20 @@
 export default function() {
+  const query = (modelType, queryParams, options) => {
+    const queryKeys = Object.keys(options)
+    const queryObject = {}
 
-  // These comments are here to help you get started. Feel free to delete them.
+    queryKeys.forEach(key =>
+        queryObject[key] = queryParams[options[key]])
 
-  /*
-    Config (with defaults).
+    if (queryKeys.length) {
+      return modelType.where(queryObject)
+    }
 
-    Note: these only affect routes defined *after* them!
-  */
+    return modelType.all()
+  }
 
-  // this.urlPrefix = ''    // make this `http://localhost:8080`, for example, if your API is on a different server
-  // this.namespace = ''    // make this `/api`, for example, if your API is namespaced
-  // this.timing = 400      // delay for each request, automatically set to 0 during testing
+  const getOrganziations = ({ organizations }, { queryParams }) =>
+    query(organizations, queryParams, { friendlyUrl: 'friendlyUrl' })
 
-  /*
-    Shorthand cheatsheet:
-
-    this.get('/posts')
-    this.post('/posts')
-    this.get('/posts/:id')
-    this.put('/posts/:id') // or this.patch
-    this.del('/posts/:id')
-
-    http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
-  */
+  this.get('organizations', getOrganziations)
 }
