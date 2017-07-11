@@ -17,4 +17,5 @@ export default function() {
     query(organizations, queryParams, { friendlyUrl: 'friendlyUrl' })
 
   this.get('organizations', getOrganziations)
+  this.get('sports/:id')
 }

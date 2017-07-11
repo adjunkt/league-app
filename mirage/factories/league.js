@@ -8,7 +8,7 @@ const {
 } = faker
 
 export default Factory.extend({
-  name: () => cycle('Gold', 'Silver', 'Bronze'),
+  name: cycle('Gold', 'Silver', 'Bronze'),
   enabled: true,
   deleted: false
 })

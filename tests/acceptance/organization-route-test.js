@@ -9,20 +9,33 @@ describe('Acceptance | organization route', function() {
   beforeEach(function() {
     application = startApp()
 
-    server.create('organization', {
+    const organization = server.create('organization', {
       name: 'Sports Center',
       friendlyUrl: 'sports-center'
     })
+
+    server.create('sport', { name: 'Hockey', organization })
+    server.create('sport', { name: 'Soccer', organization })
+    server.create('sport', { name: 'Baseball', organization })
   })
 
   afterEach(function() {
     destroyApp(application)
   })
 
-  it('can visit /organization-route', async () => {
-    await visit('/sports-center')
+  context('organization index', () => {
+    it('can visit /organization-route', async () => {
+      await visit('/sports-center')
 
-    expect(currentURL()).to.equal('/sports-center')
-    expect($('body').text()).to.contain('Sports Center')
+      expect(currentURL()).to.equal('/sports-center')
+      expect($('body').text()).to.contain('Sports Center')
+    })
+
+    it('displays list of associated sports', async () => {
+      await visit('/sports-center')
+
+      const subject = $('[data-test=organization-sport-list] li')
+      expect(subject.length).to.equal(3)
+    })
   })
 })
