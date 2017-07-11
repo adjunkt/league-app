@@ -5,5 +5,4 @@ const {
 } = DS
 
 export default Model.extend({
-  
 })

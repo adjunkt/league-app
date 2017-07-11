@@ -2,9 +2,9 @@ import { expect } from 'chai'
 import { describe, it } from 'mocha'
 import { setupModelTest } from 'ember-mocha'
 
-describe('Unit | Model | game', () => {
-  setupModelTest('game', {
-    needs: []
+describe('Unit | Model | sport', () => {
+  setupModelTest('sport', {
+    needs: ['model:organization']
   })
 
   it('exists', function() {

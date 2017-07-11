@@ -10,8 +10,7 @@ module.exports = {
   env: {
     browser: true
   },
-  rules: {
-    plugins: [
+  plugins: [
     'chai-friendly'
   ],
   rules: {

@@ -7,9 +7,12 @@ const Router = Ember.Router.extend({
 })
 
 Router.map(function() {
-  this.route('organization', { path: ':organization_path', resetNamespace: true }, function() {
-    this.route('sport', { path: ':sport_path'}, function() {
-      this.route('league', { path: ':league_id'}, function() {
+  this.route('organization', {
+    path: ':organization_path',
+    resetNamespace: true
+  }, function() {
+    this.route('sport', { path: ':sport_path' }, function() {
+      this.route('league', { path: ':league_id' }, function() {
         this.route('teams', function() {
           this.route('new')
         })

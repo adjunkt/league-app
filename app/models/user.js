@@ -13,7 +13,5 @@ export default Model.extend({
   enabled: true,
   deleted: false,
 
-  organizations: hasMany('organization', { inverse: 'users' }),
-  leagues: hasMany('league', { inverse: 'users' }),
-  teams: hasMany('team', { inverse: 'users' })
+  organizations: hasMany('organization', { inverse: 'users' })
 })

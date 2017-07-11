@@ -2,8 +2,8 @@ import { expect } from 'chai'
 import { describe, it } from 'mocha'
 import { setupTest } from 'ember-mocha'
 
-describe('Unit | Route | route:organization', () => {
-  setupTest('route:organization', {})
+describe('Unit | Route | organization/sport', () => {
+  setupTest('route:organization/sport', {})
 
   it('exists', function() {
     const route = this.subject()
