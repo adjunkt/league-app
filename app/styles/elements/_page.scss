@@ -1,0 +1,18 @@
+html {
+  line-height: 1.15; // 1
+  -ms-text-size-adjust: 100%; // 2
+  -webkit-text-size-adjust: 100%; // 2
+  -ms-overflow-style: scrollbar; // 3
+  -webkit-tap-highlight-color: rgba(0,0,0,0); // 4
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #333333;
+  background-color: #ffffff;
+}
