@@ -14,8 +14,9 @@ export default function() {
   }
 
   const getOrganziations = ({ organizations }, { queryParams }) =>
-    query(organizations, queryParams, { friendlyUrl: 'friendlyUrl' })
+    query(organizations, queryParams, { friendlyName: 'friendlyName' })
 
   this.get('organizations', getOrganziations)
+  this.get('sports')
   this.get('sports/:id')
 }

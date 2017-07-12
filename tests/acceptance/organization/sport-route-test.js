@@ -11,7 +11,7 @@ describe('Acceptance | organization/sport route', function() {
 
     const organization = server.create('organization', {
       name: 'Sports Center',
-      friendlyUrl: 'sports-center'
+      friendlyName: 'sports-center'
     })
   })
 

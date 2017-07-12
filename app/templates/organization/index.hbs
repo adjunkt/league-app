@@ -1,9 +1,10 @@
 <ul data-test='organization-sport-list'>
   {{#each model as |sport|}}
     <li>
-      {{sport.name}}
+      {{#link-to 'organization.sport' sport.friendlyName}}
+        {{sport.name}}
+      {{/link-to}}
     </li>
-    <br/>
   {{/each}}
 </ul>
 

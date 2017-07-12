@@ -8,5 +8,6 @@ const {
 } = faker
 
 export default Factory.extend({
-  name: cycle('Hockey', 'Soccer', 'Baseball')
+  name: cycle('Hockey', 'Soccer', 'Baseball'),
+  friendlyName: cycle('hockey', 'soccer', 'baseball')
 })
