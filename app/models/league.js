@@ -1,12 +1,15 @@
 import DS from 'ember-data'
 
 const {
-  Model,
-  attr
+  attr,
+  belongsTo,
+  Model
 } = DS
 
 export default Model.extend({
   name: attr('string'),
   enabled: true,
-  deleted: false
+  deleted: false,
+
+  sport: belongsTo('sport', { inverse: 'leagues'})
 })

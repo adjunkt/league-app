@@ -19,4 +19,6 @@ export default function() {
   this.get('organizations', getOrganziations)
   this.get('sports')
   this.get('sports/:id')
+  this.get('leagues')
+  this.get('leagues/:id')
 }

@@ -1,0 +1,7 @@
+{{#each model as |league|}}
+  {{#link-to 'organization.sport.league' league.id}}
+    {{league.name}}
+  {{/link-to}}
+  <br/>
+{{/each}}
+{{outlet}}
