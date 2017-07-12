@@ -1,0 +1,18 @@
+<h5>
+  Players
+</h5>
+{{#each model.players as |player|}}
+  {{player.firstName}} {{player.lastName}}
+  <br/>
+{{/each}}
+<br/>
+
+<h5>
+  Teams
+</h5>
+{{#each model.teams as |team|}}
+  {{team.name}}
+  <br/>
+{{/each}}
+
+{{outlet}}

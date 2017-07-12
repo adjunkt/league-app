@@ -21,4 +21,8 @@ export default function() {
   this.get('sports/:id')
   this.get('leagues')
   this.get('leagues/:id')
+  this.get('users')
+  this.get('users/:id')
+  this.get('teams')
+  this.get('teams/:id')
 }
