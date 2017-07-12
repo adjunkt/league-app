@@ -1,7 +1,12 @@
-{{#each model as |league|}}
-  {{#link-to 'organization.sport.league' league.id}}
-    {{league.name}}
-  {{/link-to}}
-  <br/>
-{{/each}}
+<ul data-test='sport-league-list'>
+  {{#each model as |league|}}
+    <li>
+      {{#link-to 'organization.sport.league' league.id}}
+        {{league.name}}
+      {{/link-to}}
+      <br/>
+    </li>
+  {{/each}}
+</ul>
+
 {{outlet}}

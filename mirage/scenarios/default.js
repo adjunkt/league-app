@@ -1,11 +1,4 @@
-let _server
-
-const build = (type, ...resources) =>
-  resources.map(resource => _server.create(type, resource))
-
 export default function(server) {
-  _server = server
-
   const org = server.create('organization', {
     name: 'Indoor Goals',
     friendlyName: 'indoor-goals'
@@ -13,18 +6,18 @@ export default function(server) {
 
   const sport = org.createSport({
     name: 'Hockey',
-    friendlyName: 'hockey',
+    friendlyName: 'hockey'
   })
   org.createSport({
     name: 'Soccer',
-    friendlyName: 'soccer',
+    friendlyName: 'soccer'
   })
 
   sport.createLeague({
     name: 'Gold'
   })
 
-  const league = sport.createLeague({
+  sport.createLeague({
     name: 'Silver'
   })
 

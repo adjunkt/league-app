@@ -11,5 +11,5 @@ export default Model.extend({
   enabled: true,
   deleted: false,
 
-  sport: belongsTo('sport', { inverse: 'leagues'})
+  sport: belongsTo('sport', { inverse: 'leagues' })
 })

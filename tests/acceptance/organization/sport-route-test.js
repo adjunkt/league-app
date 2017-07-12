@@ -13,15 +13,32 @@ describe('Acceptance | organization/sport route', function() {
       name: 'Sports Center',
       friendlyName: 'sports-center'
     })
+
+    const sport = organization
+      .createSport({ name: 'Hockey', friendlyName: 'hockey' })
+
+    sport.createLeague({ name: 'Gold' })
+    sport.createLeague({ name: 'Silver' })
+    sport.createLeague({ name: 'Bronze' })
   })
 
   afterEach(function() {
     destroyApp(application)
   })
 
-  it('can visit /organization/sport-route', async () => {
-    await visit('/sports-center/hockey')
+  context('sports index', () => {
+    it('can visit /organization/sport-route', async () => {
+      await visit('/sports-center/hockey')
 
-    expect(currentURL()).to.equal('/sports-center/hockey')
+      expect(currentURL()).to.equal('/sports-center/hockey')
+      expect($('body').text()).to.contain('Hockey')
+    })
+
+    it('displays list of associated league', async () => {
+      await visit('/sports-center/hockey')
+
+      const subject = $('[data-test=sport-league-list] li')
+      expect(subject.length).to.equal(3)
+    })
   })
 })
