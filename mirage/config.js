@@ -1,21 +1,33 @@
-export default function() {
-  const query = (modelType, queryParams, options) => {
-    const queryKeys = Object.keys(options)
-    const queryObject = {}
+const isEmpty = object => Object.keys(object).length === 0
 
-    queryKeys.forEach(key =>
-        queryObject[key] = queryParams[options[key]])
+const extract = filterParam => {
+  const match = filterParam.match(/\[(.*?)\]/)
+  return match ? match[1] : undefined
+}
 
-    if (queryKeys.length) {
-      return modelType.where(queryObject)
-    }
+const extractFilters = queryParams => {
+  const query = {}
 
-    return modelType.all()
+  Object.keys(queryParams).forEach(filter =>
+    query[extract(filter)] = queryParams[filter])
+
+  return query
+}
+
+const query = (modelType, queryParams) => {
+  const queryObject = extractFilters(queryParams)
+
+  if (isEmpty(queryObject)) {
+    return modelType.where(queryObject)
   }
 
-  const getOrganziations = ({ organizations }, { queryParams }) =>
-    query(organizations, queryParams, { friendlyName: 'friendlyName' })
+  return modelType.all()
+}
 
+const getOrganziations = ({ organizations }, { queryParams }) =>
+  query(organizations, queryParams)
+
+export default function() {
   this.get('organizations', getOrganziations)
   this.get('sports')
   this.get('sports/:id')

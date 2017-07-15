@@ -7,7 +7,7 @@ const {
 
 export default Route.extend({
   model() {
-    const sportId = get(this.modelFor('organization.sport'), 'id')
+    const sportId = get(this.modelFor('sport'), 'id')
     const sport = this.get('store').peekRecord('sport', sportId)
 
     return sport.get('leagues')

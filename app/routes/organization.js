@@ -5,10 +5,14 @@ const {
   get
 } = Ember
 
+const filterParams = (params) => ({ filter: { ...params }})
+
 export default Route.extend({
   model(params) {
     return this.get('store')
-      .query('organization', { friendlyName: get(params, 'organization_path') })
-      .then(result => get(result, 'firstObject'))
+      .query(
+        'organization',
+        filterParams({ friendlyName: get(params, 'organization_path') })
+      ).then(result => get(result, 'firstObject'))
   }
 })
