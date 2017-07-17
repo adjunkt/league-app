@@ -8,5 +8,6 @@ const {
 } = faker
 
 export default Factory.extend({
-  name: cycle('Spring', 'Summer', 'Fall', 'Winter')
+  name: cycle('Spring', 'Summer', 'Fall', 'Winter'),
+  year: '2017'
 })

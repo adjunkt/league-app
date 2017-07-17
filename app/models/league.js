@@ -12,7 +12,8 @@ export default Model.extend({
   enabled: true,
   deleted: false,
 
-  sport: belongsTo('sport', { inverse: 'leagues' }),
   players: hasMany('user', { inverse: 'leagues' }),
-  teams: hasMany('team', { inverse: 'league' }),
+  seasons: hasMany('season', { inverse: 'leagues' }),
+  sport: belongsTo('sport', { inverse: 'leagues' }),
+  teams: hasMany('team', { inverse: 'league' })
 })

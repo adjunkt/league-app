@@ -5,6 +5,5 @@ const {
 } = Ember
 
 export default Route.extend({
-  model(params) {
-  }
+  model(params) {}
 })

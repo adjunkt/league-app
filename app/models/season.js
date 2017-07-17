@@ -2,9 +2,13 @@ import DS from 'ember-data'
 
 const {
   Model,
-  attr
+  attr,
+  hasMany
 } = DS
 
 export default Model.extend({
-  name: attr('string')
+  name: attr('string'),
+  year: attr('string'),
+
+  leagues: hasMany('league', { inverse: 'seasons' })
 })
