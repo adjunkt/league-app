@@ -1,13 +1,13 @@
 import DS from 'ember-data'
+import HasManyQueryModel from './has-many-query-model'
 
 const {
   attr,
   belongsTo,
-  hasMany,
-  Model
+  hasMany
 } = DS
 
-export default Model.extend({
+export default HasManyQueryModel.extend({
   name: attr('string'),
   friendlyName: attr('string'),
 

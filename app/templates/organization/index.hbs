@@ -1,7 +1,7 @@
 <ul data-test='organization-sport-list'>
   {{#each model as |sport|}}
     <li>
-      {{#link-to 'sport' sport.friendlyName}}
+      {{#link-to 'organization.sport' sport.friendlyName}}
         {{sport.name}}
       {{/link-to}}
     </li>
