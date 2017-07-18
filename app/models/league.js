@@ -13,7 +13,7 @@ export default Model.extend({
   deleted: false,
 
   players: hasMany('user', { inverse: 'leagues' }),
-  seasons: hasMany('season', { inverse: 'leagues' }),
+  seasons: hasMany('season', { inverse: 'league' }),
   sport: belongsTo('sport', { inverse: 'leagues' }),
   teams: hasMany('team', { inverse: 'league' })
 })

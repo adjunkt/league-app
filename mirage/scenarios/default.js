@@ -26,6 +26,30 @@ export default function(server) {
     name: 'Bronze'
   })
 
+  // league.createSeason({
+  //   name: 'Spring',
+  //   startDate: ,
+  //   endDate:
+  // })
+  //
+  // league.createSeason({
+  //   name: 'Summer',
+  //   startDate: ,
+  //   endDate:
+  // })
+  //
+  // league.createSeason({
+  //   name: 'Fall',
+  //   startDate: ,
+  //   endDate:
+  // })
+  //
+  // league.createSeason({
+  //   name: 'Winter',
+  //   startDate: ,
+  //   endDate:
+  // })
+
   const team = league.createTeam({
     name: 'Smoking Guns'
   })
