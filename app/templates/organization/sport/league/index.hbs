@@ -1,18 +1,6 @@
-<h5>
-  Players
-</h5>
-{{#each model.players as |player|}}
-  {{player.firstName}} {{player.lastName}}
+{{#each model as |season|}}
+  {{#link-to 'organization.sport.league.season' season.id}}
+    {{season.name}}
+  {{/link-to}}
   <br/>
 {{/each}}
-<br/>
-
-<h5>
-  Teams
-</h5>
-{{#each model.teams as |team|}}
-  {{team.name}}
-  <br/>
-{{/each}}
-
-{{outlet}}

@@ -1,1 +1,6 @@
-season.index
+{{#each model.teams as |team|}}
+  {{#link-to 'organization.sport.league.season.teams.show' team.id}}
+    {{team.name}}
+  {{/link-to}}
+  <br/>
+{{/each}}

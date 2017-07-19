@@ -3,7 +3,8 @@ import DS from 'ember-data'
 const {
   Model,
   attr,
-  belongsTo
+  belongsTo,
+  hasMany
 } = DS
 
 export default Model.extend({
@@ -12,4 +13,5 @@ export default Model.extend({
   endDate: attr('date'),
 
   league: belongsTo('league', { inverse: 'seasons' }),
+  teams: hasMany('team', { inverse: 'seasons' })
 })

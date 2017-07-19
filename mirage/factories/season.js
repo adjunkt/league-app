@@ -1,3 +1,4 @@
+import moment from 'moment'
 import {
   Factory,
   faker
@@ -7,7 +8,10 @@ const {
   list: { cycle }
 } = faker
 
+const isoDate = (...params) => moment(params).toISOString()
+
 export default Factory.extend({
   name: cycle('Spring', 'Summer', 'Fall', 'Winter'),
-  year: '2017'
+  startDate: isoDate(2017, 1, 1),
+  endDate: isoDate(2017, 3, 31)
 })

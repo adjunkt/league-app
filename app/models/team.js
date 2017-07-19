@@ -13,5 +13,6 @@ export default Model.extend({
   deleted: attr('boolean'),
 
   players: hasMany('user', { inverse: 'teams' }),
-  league: belongsTo('league', { inverse: 'teams' })
+  league: belongsTo('league', { inverse: 'teams' }),
+  seasons: hasMany('season', { inverse: 'teams' })
 })
