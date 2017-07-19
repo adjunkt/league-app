@@ -8,10 +8,8 @@ const {
 const filterParams = params => ({ filter: { ...params }})
 
 export default Route.extend({
-  model(params) {
-    const queryParams = filterParams({
-      friendlyName: get(params, 'organization_path')
-    })
+  model({ organization_path }) {
+    const queryParams = filterParams({ friendlyName: organization_path })
 
     return this.get('store')
       .query('organization', queryParams)

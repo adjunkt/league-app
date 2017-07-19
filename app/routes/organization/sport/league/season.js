@@ -5,7 +5,7 @@ const {
 } = Ember
 
 export default Route.extend({
-  model({ league_id }) {
-    return this.get('store').find('league', league_id)
+  model({ season_id }) {
+    return this.get('store').findRecord('season', season_id)
   }
 })
