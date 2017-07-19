@@ -1,3 +1,7 @@
+import moment from 'moment'
+
+const isoDate = (...params) => moment(params).toISOString()
+
 export default function(server) {
   const org = server.create('organization', {
     name: 'Indoor Goals',
@@ -26,39 +30,39 @@ export default function(server) {
     name: 'Bronze'
   })
 
-  // league.createSeason({
-  //   name: 'Spring',
-  //   startDate: ,
-  //   endDate:
-  // })
-  //
-  // league.createSeason({
-  //   name: 'Summer',
-  //   startDate: ,
-  //   endDate:
-  // })
-  //
-  // league.createSeason({
-  //   name: 'Fall',
-  //   startDate: ,
-  //   endDate:
-  // })
-  //
-  // league.createSeason({
-  //   name: 'Winter',
-  //   startDate: ,
-  //   endDate:
-  // })
+  const season = league.createSeason({
+    name: 'Spring',
+    startDate: isoDate(2017, 0, 1),
+    endDate: isoDate(2017, 2, 31)
+  })
 
-  const team = league.createTeam({
+  league.createSeason({
+    name: 'Summer',
+    startDate: isoDate(2017, 3, 1),
+    endDate: isoDate(2017, 5, 30)
+  })
+
+  league.createSeason({
+    name: 'Fall',
+    startDate: isoDate(2017, 6, 1),
+    endDate: isoDate(2017, 8, 29)
+  })
+
+  league.createSeason({
+    name: 'Winter',
+    startDate: isoDate(2017, 9, 1),
+    endDate: isoDate(2017, 11, 31)
+  })
+
+  const team = season.createTeam({
     name: 'Smoking Guns'
   })
 
-  league.createTeam({
+  season.createTeam({
     name: 'Bombers'
   })
 
-  league.createTeam({
+  season.createTeam({
     name: 'Handsome'
   })
 
