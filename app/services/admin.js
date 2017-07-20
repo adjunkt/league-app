@@ -7,7 +7,8 @@ export default EmberAdminServiceAdmin.extend({
     'season',
     'organization',
     'sport',
-    'team'
+    'team',
+    'game'
   ],
   namespace: ''
 })

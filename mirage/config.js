@@ -29,14 +29,24 @@ const getOrganziations = ({ organizations }, { queryParams }) =>
 
 export default function() {
   this.get('organizations', getOrganziations)
+  this.get('organizations/:id')
+
   this.get('sports')
   this.get('sports/:id')
+
   this.get('leagues')
   this.get('leagues/:id')
+
   this.get('seasons')
   this.get('seasons/:id')
+
   this.get('users')
   this.get('users/:id')
+
   this.get('teams')
   this.get('teams/:id')
+
+  this.get('games')
+  this.get('games/:id')
+
 }
