@@ -1,5 +1,6 @@
 import Ember from 'ember'
 import config from './config/environment'
+import adminRouter from 'ember-admin/router'
 
 const Router = Ember.Router.extend({
   location: config.locationType,
@@ -7,6 +8,8 @@ const Router = Ember.Router.extend({
 })
 
 Router.map(function() {
+  adminRouter(this)
+
   this.route('organization', { path: ':organization_path' }, function() {
     this.route('sport', { path: ':sport_path' }, function() {
       this.route('league', { path: ':league_id' }, function() {
