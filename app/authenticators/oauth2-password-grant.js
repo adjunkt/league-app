@@ -11,8 +11,8 @@ const {
 } = Ember
 
 export default OAuth2PasswordGrant.extend({
-  serverTokenEndpoint: `${ENV.apiHost}/oauth/token`,
-  serverTokenRevocationEndpoint: `${ENV.apiHost}/oauth/revoke`,
+  serverTokenEndpoint: `${ENV.apiAppUrl}/oauth/token`,
+  serverTokenRevocationEndpoint: `${ENV.apiAppUrl}/oauth/revoke`,
 
   makeRequest(url, data, headers = {}) {
     const body = Object.keys(data).map(key =>
@@ -28,10 +28,6 @@ export default OAuth2PasswordGrant.extend({
 
     options.headers['Content-Type'] = 'application/x-www-form-urlencoded'
 
-    const clientIdHeader = this.get('_clientIdHeader')
-    if (!isEmpty(clientIdHeader)) {
-      merge(options.headers, clientIdHeader)
-    }
     return new RSVP.Promise((resolve, reject) => {
       fetch(url, options).then(response => {
         response.text().then(text => {

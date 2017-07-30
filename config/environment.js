@@ -21,11 +21,20 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-    apiHost: 'http://localhost:3111'
+    apiAppUrl: 'http://localhost:3111',
+    frontendAppUrl: 'http://localhost:1111'
   }
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true
+    ENV.contentSecurityPolicy = {
+      'connect-src': `'self' ${ENV.apiAppUrl} ${ENV.frontendAppUrl}`,
+      'font-src': `'self' ${ENV.frontendAppUrl}`,
+      'img-src': `'self', 'data:', ${ENV.frontendAppUrl}`,
+      'media-src': `'self' ${ENV.frontendAppUrl}`,
+      'style-src': `'self', 'unsafe-inline', ${ENV.frontendAppUrl}`,
+      'script-src': `'self' ${ENV.apiAppUrl} ${ENV.frontendAppUrl}`
+    }
+      // ENV.APP.LOG_RESOLVER = true
     // ENV.APP.LOG_ACTIVE_GENERATION = true
     // ENV.APP.LOG_TRANSITIONS = true
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true
