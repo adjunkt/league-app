@@ -51,5 +51,5 @@ export default function() {
   this.get('games')
   this.get('games/:id')
 
-  return this.passthrough(`${ENV.apiAppUrl}/**`)
+  return this.passthrough(`${ENV.apiUrl}/**`)
 }

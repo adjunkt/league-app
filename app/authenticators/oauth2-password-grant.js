@@ -11,8 +11,8 @@ const {
 } = Ember
 
 export default OAuth2PasswordGrant.extend({
-  serverTokenEndpoint: `${ENV.apiAppUrl}/oauth/token`,
-  serverTokenRevocationEndpoint: `${ENV.apiAppUrl}/oauth/revoke`,
+  serverTokenEndpoint: `${ENV.apiUrl}/oauth/token`,
+  serverTokenRevocationEndpoint: `${ENV.apiUrl}/oauth/revoke`,
 
   makeRequest(url, data, headers = {}) {
     const body = Object.keys(data).map(key =>

@@ -21,20 +21,21 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-    apiAppUrl: 'http://localhost:3111',
-    frontendAppUrl: 'http://localhost:1111'
+    apiUrl: 'http://localhost:3111',
+    frontendUrl: 'http://localhost:1111'
   }
 
   if (environment === 'development') {
     ENV.contentSecurityPolicy = {
-      'connect-src': `'self' ${ENV.apiAppUrl} ${ENV.frontendAppUrl}`,
-      'font-src': `'self' ${ENV.frontendAppUrl}`,
-      'img-src': `'self', 'data:', ${ENV.frontendAppUrl}`,
-      'media-src': `'self' ${ENV.frontendAppUrl}`,
-      'style-src': `'self', 'unsafe-inline', ${ENV.frontendAppUrl}`,
-      'script-src': `'self' ${ENV.apiAppUrl} ${ENV.frontendAppUrl}`
+      'connect-src': `'self' ${ENV.apiUrl} ${ENV.frontendUrl}`,
+      'font-src': `'self' ${ENV.frontendUrl}`,
+      'img-src': `'self', 'data:', ${ENV.frontendUrl}`,
+      'media-src': `'self' ${ENV.frontendUrl}`,
+      'style-src': `'self', 'unsafe-inline', ${ENV.frontendUrl}`,
+      'script-src': `'self' ${ENV.apiUrl} ${ENV.frontendUrl}`
     }
-      // ENV.APP.LOG_RESOLVER = true
+
+    // ENV.APP.LOG_RESOLVER = true
     // ENV.APP.LOG_ACTIVE_GENERATION = true
     // ENV.APP.LOG_TRANSITIONS = true
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true
