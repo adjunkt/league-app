@@ -1,5 +1,5 @@
 import Ember from 'ember'
-import ENV from 'league-app/config/environment'
+import ENV from 'league/config/environment'
 import fetch from 'fetch'
 import OAuth2PasswordGrant
   from 'ember-simple-auth/authenticators/oauth2-password-grant'
