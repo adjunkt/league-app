@@ -24,9 +24,12 @@ export default Service.extend({
     if (isAuthenticated) {
       return this.get('store')
         .queryRecord('user', { me: true })
-        .then(currentUser => this.set('user', currentUser))
+        .then(
+          currentUser => this.set('user', currentUser),
+          error => error
+        )
     }
 
-    return RSVP.resolve()
+    return RSVP.reject()
   }
 })
