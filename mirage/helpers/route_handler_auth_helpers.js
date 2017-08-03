@@ -18,9 +18,8 @@ export const TOKEN_RESPONSE = {
 }
 
 // Not real, just so we can fake a lookup for me
-export const encodeTokenResponse = username => (
-  return assign({}, TOKEN_RESPONSE, { access_token: window.btoa(username)})
-)
+export const encodeTokenResponse = username =>
+  assign({}, TOKEN_RESPONSE, { access_token: window.btoa(username) })
 
 export const decodeToken = authorizationHeader =>
   window.atob(authorizationHeader.split(' ').pop())

@@ -1,13 +1,13 @@
 import ENV from 'league/config/environment'
-import * from 'league/mirage/helpers/route_handler_auth_helpers'
-import * from 'league/mirage/helpers/route_handler_query_helpers'
+import * as AuthHelpers from 'league/mirage/helpers/route_handler_auth_helpers'
+import * as QueryHelpers from 'league/mirage/helpers/route_handler_query_helpers'
 
 
 export default function() {
-  this.post('oauth/token', getToken)
-  this.post('oauth/revoke', revokeToken)
+  this.post('oauth/token', AuthHelpers.getToken)
+  this.post('oauth/revoke', AuthHelpers.revokeToken)
 
-  this.get('organizations', getOrganziations)
+  this.get('organizations', QueryHelpers.getOrganziations)
   this.get('organizations/:id')
 
   this.get('sports')
@@ -19,7 +19,7 @@ export default function() {
   this.get('seasons')
   this.get('seasons/:id')
 
-  this.get('users/me', getMe)
+  this.get('users/me', AuthHelpers.getMe)
   this.get('users')
   this.get('users/:id')
 
