@@ -10,7 +10,7 @@ export default Route.extend({
 
   beforeModel() {
     if (this.get('session.isAuthenticated')) {
-      return this.get('session').invalidate()
+      this.get('session').invalidate()
     }
 
     this.transitionTo('login')

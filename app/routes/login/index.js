@@ -10,7 +10,7 @@ export default Route.extend({
 
   beforeModel() {
     if (this.get('session.isAuthenticated')) {
-      this.transitionTo('organization')
+      this.transitionTo('organization', 'indoor-goals') // STUB
     }
   }
 })

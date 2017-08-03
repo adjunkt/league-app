@@ -18,10 +18,8 @@ export default Controller.extend({
           identification,
           password
         ).then(
-          () => {},
-          error => {
-            assert('Authentication failed', error)
-          }
+          () => this.transitionTo('organization', 'indoor-goals'), // STUB
+          error => assert('Authentication error', error) // STUB
         ).finally(() => {
           this.set('isLoading', false)
         })

@@ -1,1 +1,4 @@
+{{#if session.isAuthenticated}}
+  {{link-to 'logout' 'logout'}}
+{{/if}}
 {{outlet}}
