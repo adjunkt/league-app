@@ -3,7 +3,8 @@ import Ember from 'ember'
 const {
   inject: { service },
   Service,
-  RSVP
+  RSVP,
+  isPresent
 } = Ember
 
 export default Service.extend({
@@ -11,22 +12,19 @@ export default Service.extend({
   session: service(),
 
   user: null,
-  isLoaded: false,
 
   load() {
     const isAuthenticated = this.get('session.isAuthenticated')
+    const user = this.get('user')
 
-    if (isAuthenticated && this.get('isLoaded')) {
-      return RSVP.resolve(this.get('user'))
+    if (isAuthenticated && isPresent(user)) {
+      return RSVP.resolve(user)
     }
 
     if (isAuthenticated) {
       return this.get('store')
         .queryRecord('user', { me: true })
-        .then(user => {
-          this.set('isLoaded', true)
-          return this.set('user', user)
-        })
+        .then(currentUser => this.set('user', currentUser))
     }
 
     return RSVP.resolve()
