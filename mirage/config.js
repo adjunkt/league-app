@@ -1,35 +1,12 @@
 import ENV from 'league/config/environment'
+import * from 'league/mirage/helpers/route_handler_auth_helpers'
+import * from 'league/mirage/helpers/route_handler_query_helpers'
 
-const isEmpty = object => Object.keys(object).length === 0
-
-const extract = filterParam => {
-  const match = filterParam.match(/\[(.*?)\]/)
-  return match ? match[1] : undefined
-}
-
-const extractFilters = queryParams => {
-  const query = {}
-
-  Object.keys(queryParams).forEach(filter =>
-    query[extract(filter)] = queryParams[filter])
-
-  return query
-}
-
-const query = (modelType, queryParams) => {
-  const queryObject = extractFilters(queryParams)
-
-  if (isEmpty(queryObject)) {
-    return modelType.where(queryObject)
-  }
-
-  return modelType.all()
-}
-
-const getOrganziations = ({ organizations }, { queryParams }) =>
-  query(organizations, queryParams)
 
 export default function() {
+  this.post('oauth/token', getToken)
+  this.post('oauth/revoke', revokeToken)
+
   this.get('organizations', getOrganziations)
   this.get('organizations/:id')
 
@@ -42,6 +19,7 @@ export default function() {
   this.get('seasons')
   this.get('seasons/:id')
 
+  this.get('users/me', getMe)
   this.get('users')
   this.get('users/:id')
 
