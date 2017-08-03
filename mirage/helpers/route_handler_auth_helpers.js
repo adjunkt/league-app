@@ -51,5 +51,5 @@ export const getToken = ({ users }, { requestBody }) => {
 
 export const revokeToken = () => new Mirage.Response(200)
 
-const getMe = ({ users }, { requestHeaders: { Authorization }}) =>
+export const getMe = ({ users }, { requestHeaders: { Authorization }}) =>
   users.findBy({ email: decodeToken(Authorization) })

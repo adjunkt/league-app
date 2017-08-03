@@ -20,13 +20,12 @@ Router.map(function() {
           this.route('games', function() {
             this.route('show', { path: ':game_id' })
           })
-
         })
       })
     })
   })
-  this.route('login', function() {});
-  this.route('logout');
+  this.route('login', () => {})
+  this.route('logout')
 })
 
 export default Router

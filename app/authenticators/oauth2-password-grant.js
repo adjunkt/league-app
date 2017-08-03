@@ -5,9 +5,7 @@ import OAuth2PasswordGrant
   from 'ember-simple-auth/authenticators/oauth2-password-grant'
 
 const {
-  isEmpty,
-  RSVP,
-  merge
+  RSVP
 } = Ember
 
 export default OAuth2PasswordGrant.extend({

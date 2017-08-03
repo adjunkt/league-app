@@ -1,15 +1,12 @@
-import { expect } from 'chai';
-import { describe, it } from 'mocha';
-import { setupTest } from 'ember-mocha';
+import { expect } from 'chai'
+import { describe, it } from 'mocha'
+import { setupTest } from 'ember-mocha'
 
-describe('Unit | Route | organization/sport/league', function() {
-  setupTest('route:organization/sport/league', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
+describe('Unit | Route | organization/sport/league', () => {
+  setupTest('route:organization/sport/league', {})
 
   it('exists', function() {
-    let route = this.subject();
-    expect(route).to.be.ok;
-  });
-});
+    const route = this.subject()
+    expect(route).to.be.ok
+  })
+})

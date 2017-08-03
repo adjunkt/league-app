@@ -1,12 +1,17 @@
-import { describe, it, beforeEach, afterEach } from 'mocha'
+import Ember from 'ember'
+import { describe, it, beforeEach, afterEach, context } from 'mocha'
 import { expect } from 'chai'
 import startApp from 'league/tests/helpers/start-app'
 import destroyApp from 'league/tests/helpers/destroy-app'
 
-describe('Acceptance | organization route', function() {
+const {
+  $
+} = Ember
+
+describe('Acceptance | organization route', () => {
   let application
 
-  beforeEach(function() {
+  beforeEach(() => {
     application = startApp()
 
     const organization = server.create('organization', {
@@ -19,7 +24,7 @@ describe('Acceptance | organization route', function() {
     server.create('sport', { name: 'Baseball', organization })
   })
 
-  afterEach(function() {
+  afterEach(() => {
     destroyApp(application)
   })
 
