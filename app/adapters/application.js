@@ -13,6 +13,6 @@ const {
 
 export default JSONAPIAdapter.extend(DataAdapterMixin, RESTAdapterMixin, {
   coalesceFindRequests: true,
-  host: ENV.apiUrl,
+  host: ENV.apiHost,
   authorizer: 'authorizer:oauth2-bearer'
 })

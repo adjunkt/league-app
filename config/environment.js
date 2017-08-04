@@ -21,18 +21,21 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-    apiUrl: 'http://localhost:3111',
-    frontendUrl: 'http://localhost:1111'
+    apiHost: 'http://localhost:3111',
+    frontendUrl: 'http://localhost:1111',
+    'ember-cli-mirage': {
+      enabled: true
+    }
   }
 
   if (environment === 'development') {
     ENV.contentSecurityPolicy = {
-      'connect-src': `'self' ${ENV.apiUrl} ${ENV.frontendUrl}`,
+      'connect-src': `'self' ${ENV.apiHost} ${ENV.frontendUrl}`,
       'font-src': `'self' ${ENV.frontendUrl}`,
       'img-src': `'self', 'data:', ${ENV.frontendUrl}`,
       'media-src': `'self' ${ENV.frontendUrl}`,
       'style-src': `'self', 'unsafe-inline', ${ENV.frontendUrl}`,
-      'script-src': `'self' ${ENV.apiUrl} ${ENV.frontendUrl}`
+      'script-src': `'self' ${ENV.apiHost} ${ENV.frontendUrl}`
     }
 
     // ENV.APP.LOG_RESOLVER = true
