@@ -26,11 +26,11 @@ export const decodeToken = authorizationHeader =>
 export const parseQueryString = query => {
   const data = {}
 
-  decodeURIComponent(query)
+  query
     .split('&')
     .forEach(pair => {
       const [key, val] = pair.split('=')
-      data[key] = val
+      data[decodeURIComponent(key)] = decodeURIComponent(val)
     }
   )
 

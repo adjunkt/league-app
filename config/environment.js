@@ -46,6 +46,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
+    ENV.apiHost = 'http://localhost:1111'
+    ENV['ember-cli-mirage'] = {
+      enabled: true
+    }
+
     // Testem prefers this...
     ENV.locationType = 'none'
 
@@ -56,9 +61,7 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing'
   }
 
-  if (environment === 'production') {
-
-  }
+  if (environment === 'production') {}
 
   return ENV
 }
