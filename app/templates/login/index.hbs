@@ -8,6 +8,7 @@
     {{input
       type='text'
       value=identification
+      data-test-login-input-identification=true
     }}
   </div>
 
@@ -18,10 +19,14 @@
     {{input
       type='password'
       value=password
+      data-test-login-input-password=true
     }}
   </div>
   <div class='form-group'>
-    <button type='submit'>
+    <button
+      type='submit'
+      data-test-login-input-submit
+    >
       Sign in
     </button>
   </div>

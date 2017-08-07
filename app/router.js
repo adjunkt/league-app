@@ -26,6 +26,7 @@ Router.map(function() {
   })
   this.route('login', () => {})
   this.route('logout')
+  this.route('authenticated');
 })
 
 export default Router

@@ -1,7 +1,8 @@
 import Ember from 'ember'
 import {
   authenticateSession,
-  invalidateSession
+  invalidateSession,
+  currentSession
 } from 'league/tests/helpers/ember-simple-auth'
 import {
   encodeTokenResponse
@@ -28,7 +29,11 @@ const authentication = (application, options) =>
 
     invalidate() {
       invalidateSession(application)
+    },
+
+    currentSession() {
+      return currentSession(application)
     }
   })
 
-export default registerHelper('authenticate', authenticate)
+export default registerHelper('authentication', authentication)
