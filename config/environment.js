@@ -30,12 +30,12 @@ module.exports = function(environment) {
 
   if (environment === 'development') {
     ENV.contentSecurityPolicy = {
-      'connect-src': `'self' ${ENV.apiHost} ${ENV.frontendUrl}`,
-      'font-src': `'self' ${ENV.frontendUrl}`,
-      'img-src': `'self', 'data:', ${ENV.frontendUrl}`,
-      'media-src': `'self' ${ENV.frontendUrl}`,
-      'style-src': `'self', 'unsafe-inline', ${ENV.frontendUrl}`,
-      'script-src': `'self' ${ENV.apiHost} ${ENV.frontendUrl}`
+      'connect-src': `'self' ${ENV.apiHost}`,
+      'font-src': `'self'`,
+      'img-src': `'self' 'data:'`,
+      'media-src': `'self'`,
+      'style-src': `'self' 'unsafe-inline'`,
+      'script-src': `'self'`
     }
 
     // ENV.APP.LOG_RESOLVER = true
