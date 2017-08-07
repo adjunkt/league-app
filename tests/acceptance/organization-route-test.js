@@ -29,14 +29,14 @@ describe('Acceptance | organization route', () => {
   })
 
   context('organization index', () => {
-    it('can visit /organization-route', async () => {
+    it.skip('can visit /organization-route', async () => {
       await visit('/sports-center')
 
       expect(currentURL()).to.equal('/sports-center')
       expect($('body').text()).to.contain('Sports Center')
     })
 
-    it('displays list of associated sports', async () => {
+    it.skip('displays list of associated sports', async () => {
       await visit('/sports-center')
 
       const subject = $('[data-test=organization-sport-list] li')

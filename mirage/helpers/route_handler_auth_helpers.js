@@ -5,7 +5,6 @@ const {
   assign
 } = Ember
 
-
 export const TOKEN_ERROR_RESPONSE = {
   error: 'invalid_grant',
   error_description: 'This is an oauth error fmt.'
@@ -53,5 +52,4 @@ export const revokeToken = () => new Mirage.Response(200)
 
 export const getMe = ({ users }, { requestHeaders: { Authorization }}) => {
   users.findBy({ email: decodeToken(Authorization) })
-
 }

@@ -6,19 +6,19 @@ import destroyApp from 'league/tests/helpers/destroy-app'
 describe('Acceptance | login route', () => {
   let application
 
-  beforeEach(function() {
+  beforeEach(() => {
     application = startApp()
   })
 
-  afterEach(function() {
+  afterEach(() => {
     destroyApp(application)
   })
 
-  it('can visit /login-route', function() {
-    visit('/login-route')
+  it('can visit /login', () => {
+    visit('/login')
 
     return andThen(() => {
-      expect(currentURL()).to.equal('/login-route')
+      expect(currentURL()).to.equal('/login')
     })
   })
 })
