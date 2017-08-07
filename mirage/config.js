@@ -19,7 +19,6 @@ export default function() {
   this.get('/seasons')
   this.get('/seasons/:id')
 
-
   this.get('/teams')
   this.get('/teams/:id')
 
@@ -27,7 +26,9 @@ export default function() {
   this.get('/games/:id')
 
   return this.passthrough(`${ENV.apiHost}/**`)
-  
+}
+
+export function testConfig() {
   this.post('/oauth/token', AuthHelpers.getToken)
   this.post('/oauth/revoke', AuthHelpers.revokeToken)
 
