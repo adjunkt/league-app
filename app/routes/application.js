@@ -34,8 +34,8 @@ export default Route.extend(ApplicationRouteMixin, {
   */
 
   baseURL: '/',
-  routeAfterAuthentication: 'organization',
-  routeIfAlreadyAuthenticated: 'organization',
+  routeAfterAuthentication: 'authenticated',
+  routeIfAlreadyAuthenticated: 'authenticated',
 
   sessionAuthenticated(...args) {
     this.loadCurrentUser()

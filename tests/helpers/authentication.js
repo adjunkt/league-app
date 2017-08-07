@@ -7,17 +7,15 @@ import {
 import {
   encodeTokenResponse
 } from 'league/mirage/helpers/route_handler_auth_helpers'
-import { PLAYER_ACCOUNT } from 'league/tests/helpers/user-accounts'
 
 const {
   Test: { registerHelper },
-  assign,
   assert
 } = Ember
 
-const authentication = (application, options) =>
+const authentication = application =>
   ({
-    authenticate(email) {
+    authenticate({ email }) {
       if (!email) {
         assert(
           '`autheicate().session()` requires that you provide an email option'
@@ -32,7 +30,7 @@ const authentication = (application, options) =>
     },
 
     currentSession() {
-      return currentSession(application)
+      return currentSession(application).get('session')
     }
   })
 
