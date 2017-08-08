@@ -1,3 +1,5 @@
+import ENV from 'league/config/environment'
+
 const isEmpty = object => Object.keys(object).length === 0
 
 const extract = filterParam => {
@@ -49,4 +51,5 @@ export default function() {
   this.get('games')
   this.get('games/:id')
 
+  return this.passthrough(`${ENV.apiUrl}/**`)
 }

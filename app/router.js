@@ -25,6 +25,8 @@ Router.map(function() {
       })
     })
   })
+  this.route('login', function() {});
+  this.route('logout');
 })
 
 export default Router
