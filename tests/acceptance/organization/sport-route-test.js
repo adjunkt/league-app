@@ -1,12 +1,17 @@
-import { describe, it, beforeEach, afterEach } from 'mocha'
+import Ember from 'ember'
+import { describe, it, beforeEach, afterEach, context } from 'mocha'
 import { expect } from 'chai'
 import startApp from 'league/tests/helpers/start-app'
 import destroyApp from 'league/tests/helpers/destroy-app'
 
-describe('Acceptance | organization/sport route', function() {
+const {
+  $
+} = Ember
+
+describe('Acceptance | organization/sport route', () => {
   let application
 
-  beforeEach(function() {
+  beforeEach(() => {
     application = startApp()
 
     const organization = server.create('organization', {
@@ -22,19 +27,19 @@ describe('Acceptance | organization/sport route', function() {
     sport.createLeague({ name: 'Bronze' })
   })
 
-  afterEach(function() {
+  afterEach(() => {
     destroyApp(application)
   })
 
   context('sports index', () => {
-    it('can visit /organization/sport-route', async () => {
+    it.skip('can visit /organization/sport-route', async () => {
       await visit('/sports-center/hockey')
 
       expect(currentURL()).to.equal('/sports-center/hockey')
       expect($('body').text()).to.contain('Hockey')
     })
 
-    it('displays list of associated league', async () => {
+    it.skip('displays list of associated league', async () => {
       await visit('/sports-center/hockey')
 
       const subject = $('[data-test=sport-league-list] li')

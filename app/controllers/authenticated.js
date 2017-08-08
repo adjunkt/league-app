@@ -6,5 +6,5 @@ const {
 } = Ember
 
 export default Controller.extend({
-  session: service()
+  currentUser: service()
 })

@@ -1,55 +1,38 @@
 import ENV from 'league/config/environment'
+import * as AuthHelpers from 'league/mirage/helpers/route_handler_auth_helpers'
+import * as QueryHelpers
+  from 'league/mirage/helpers/route_handler_query_helpers'
 
-const isEmpty = object => Object.keys(object).length === 0
-
-const extract = filterParam => {
-  const match = filterParam.match(/\[(.*?)\]/)
-  return match ? match[1] : undefined
-}
-
-const extractFilters = queryParams => {
-  const query = {}
-
-  Object.keys(queryParams).forEach(filter =>
-    query[extract(filter)] = queryParams[filter])
-
-  return query
-}
-
-const query = (modelType, queryParams) => {
-  const queryObject = extractFilters(queryParams)
-
-  if (isEmpty(queryObject)) {
-    return modelType.where(queryObject)
-  }
-
-  return modelType.all()
-}
-
-const getOrganziations = ({ organizations }, { queryParams }) =>
-  query(organizations, queryParams)
 
 export default function() {
-  this.get('organizations', getOrganziations)
-  this.get('organizations/:id')
+  this.urlPrefix = ENV.apiHost
 
-  this.get('sports')
-  this.get('sports/:id')
+  this.get('/organizations', QueryHelpers.getOrganziations)
+  this.get('/organizations/:id')
 
-  this.get('leagues')
-  this.get('leagues/:id')
+  this.get('/sports')
+  this.get('/sports/:id')
 
-  this.get('seasons')
-  this.get('seasons/:id')
+  this.get('/leagues')
+  this.get('/leagues/:id')
 
-  this.get('users')
-  this.get('users/:id')
+  this.get('/seasons')
+  this.get('/seasons/:id')
 
-  this.get('teams')
-  this.get('teams/:id')
+  this.get('/teams')
+  this.get('/teams/:id')
 
-  this.get('games')
-  this.get('games/:id')
+  this.get('/games')
+  this.get('/games/:id')
 
-  return this.passthrough(`${ENV.apiUrl}/**`)
+  return this.passthrough(`${ENV.apiHost}/**`)
+}
+
+export function testConfig() {
+  this.post('/oauth/token', AuthHelpers.getToken)
+  this.post('/oauth/revoke', AuthHelpers.revokeToken)
+
+  this.get('/users/me', AuthHelpers.getMe)
+  this.get('/users')
+  this.get('/users/:id')
 }

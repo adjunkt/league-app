@@ -4,7 +4,7 @@ import { setupModelTest } from 'ember-mocha'
 
 describe('Unit | Model | user', () => {
   setupModelTest('user', {
-    needs: ['model:organization']
+    needs: ['model:organization', 'model:league', 'model:team']
   })
 
   it('exists', function() {

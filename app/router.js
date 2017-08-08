@@ -8,8 +8,7 @@ const Router = Ember.Router.extend({
 })
 
 Router.map(function() {
-  adminRouter(this)
-
+  // TODO: remove this, basically junk
   this.route('organization', { path: ':organization_path' }, function() {
     this.route('sport', { path: ':sport_path' }, function() {
       this.route('league', { path: ':league_id' }, function() {
@@ -20,13 +19,16 @@ Router.map(function() {
           this.route('games', function() {
             this.route('show', { path: ':game_id' })
           })
-
         })
       })
     })
   })
-  this.route('login', function() {});
-  this.route('logout');
+
+  this.route('login', () => {})
+  this.route('logout')
+  this.route('authenticated', { path: '/' }, function() {
+    adminRouter(this)
+  })
 })
 
 export default Router

@@ -2,7 +2,8 @@ import Ember from 'ember'
 
 const {
   Controller,
-  inject: { service }
+  inject: { service },
+  assert
 } = Ember
 
 export default Controller.extend({
@@ -17,10 +18,8 @@ export default Controller.extend({
           identification,
           password
         ).then(
-          () => {},
-          error => {
-            console.log('Tough luck sucka')
-          }
+          () => this.transitionToRoute('authenticated'), // STUB
+          error => assert('Authentication error', error) // STUB
         ).finally(() => {
           this.set('isLoading', false)
         })

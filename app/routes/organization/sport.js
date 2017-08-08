@@ -5,7 +5,7 @@ const {
   get
 } = Ember
 
-const filterParams = params => ({ filter: { ...params }})
+const filterParams = params => ({ filter: params })
 
 export default Route.extend({
   model({ sport_path }) {
